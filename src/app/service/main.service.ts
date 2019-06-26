@@ -1,0 +1,47 @@
+import { Injectable } from '@angular/core';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { Observable, observable } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
+
+@Injectable()
+
+export class mainService {
+    myjosn=[
+       
+    {"id":"1","first_name":"Niraj","last_name":"kumar","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110091"}],"profile_img":"","order_details":[{"amount":"400","currency":"INR"}]},
+    {"id":"2","first_name":"Dhiraj","last_name":"sharma","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110091"}],"profile_img":"","order_details":[{"amount":"20","currency":"INR"}]},
+    {"id":"3","first_name":"Vivek","last_name":"pandit","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110091"}],"profile_img":"","order_details":[{"amount":"800","currency":"INR"}]},
+    {"id":"4","first_name":"Raushan","last_name":"verma","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110091"}],"profile_img":"","order_details":[{"amount":"280","currency":"INR"}]},
+    {"id":"5","first_name":"chunnu","last_name":"gupta","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110091"}],"profile_img":"","order_details":[{"amount":"150","currency":"INR"}]},
+    
+    {"id":"6","first_name":"Mukul","last_name":"agrwal","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110019"}],"profile_img":"","order_details":[{"amount":"400","currency":"USD"}]},
+    {"id":"7","first_name":"sanjeet","last_name":"thakur","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110019"}],"profile_img":"","order_details":[{"amount":"012","currency":"USD"}]},
+    {"id":"8","first_name":"pintu","last_name":"modi","adress":[{"street":"green  house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110019"}],"profile_img":"","order_details":[{"amount":"95","currency":"USD"}]},
+    {"id":"9","first_name":"praveen","last_name":"singh","adress":[{"street":"green  house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110019"}],"profile_img":"","order_details":[{"amount":"84","currency":"USD"}]},
+    {"id":"10","first_name":"Rajesh","last_name":"mahto","adress":[{"street":"green tea house","house_no":"34","city":"New Delhi","sate":"Delhi","zip":"110019"}],"profile_img":"","order_details":[{"amount":"524","currency":"USD"}]}
+        
+    ];
+
+
+    constructor(private _http:HttpClient  ){}
+
+
+    get_list(){   
+        return Observable.create(observe=>{
+            observe.next(this.myjosn);
+             
+        })
+    }
+
+    get_detail(id){
+        console.log(id);
+        return Observable.create(observe=>{
+           // console.log(observe)
+           // observe.next(this.myjosn);
+            observe.next(this.myjosn.find((data) => data.id==id ))
+        })
+
+    }
+
+}
+

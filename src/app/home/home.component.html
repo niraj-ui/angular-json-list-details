@@ -1,0 +1,6 @@
+
+<table class="table table-border">
+    <tr><td>Id</td><td>Name</td></tr>
+    <tr *ngFor="let list of data_list"><td><a routerLink="/list-details/{{list.id}}">{{list.id}}</a></td><td>{{list.first_name}} {{list.last_name}}</td></tr>
+</table>
+ 
